@@ -16,12 +16,12 @@ function App() {
 
   },[])
   return(
-      <div>
-          {peoples.map(function (people) {
-          return <PeopleCard key={people._id} name={people.name} like={people.like}  />
-        })}
-          </div>
-    ) 
+    <div className="container">
+      <p>
+        <a href="/">&laquo; Back to public homepage</a>
+      </p>
+      </div>
+  )
 }
    
 const root = createRoot(document.querySelector('#app'))
