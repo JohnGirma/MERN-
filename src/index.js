@@ -1,7 +1,7 @@
 import React , { useState ,useEffect} from 'react';
 import { createRoot } from 'react-dom/client';
 import Axios from "axios"
-import PeopleCard from './components/PeopleCard '
+// import PeopleCard from './components/PeopleCard '
 
 function App() {
   const [peoples, setPeople] = useState([]);
