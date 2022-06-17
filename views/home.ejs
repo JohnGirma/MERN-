@@ -1,1 +1,8 @@
-hello home page
+<h1>welcome</h1>
+<ul>
+    <%allPeoples.forEach(function(people) {%>
+        
+        <li><%=people.name  %> - <%= people.like %>  </li>
+        
+   <%   })%>
+</ul>

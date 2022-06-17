@@ -5,14 +5,15 @@ let db
 const app  =express()
 app.set("view engine","ejs")
 app.set("views","./views")
+app.use(express.static("public"))
 
 app.get("/",async(req,res)=>{
     const allPeoples = await db.collection("people").find().toArray()
-    // console.log(allPeoples)
-    res.send( `<h1>welcome</h1>${allPeoples.map(people=>`<p>${people.name} -${people.like}</p>`).join('')}`)
+    console.log(allPeoples)
+     res.render("home",{allPeoples})
 })
 app.get("/admin",(req,res)=>{
-    res.send("this is the secret")
+    res.render("admin")
 })
 async function start() {
     // Use connect method to connect to the server
