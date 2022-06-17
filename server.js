@@ -15,6 +15,10 @@ app.get("/",async(req,res)=>{
 app.get("/admin",(req,res)=>{
     res.render("admin")
 })
+app.get("/api/peoples",async (req,res)=>{
+    const allPeoples = await db.collection("people").find().toArray()
+    res.json(allPeoples)
+})
 async function start() {
     // Use connect method to connect to the server
     const client=new MongoClient("mongodb://root:root@localhost:27017/MearApp?&authSource=admin")
