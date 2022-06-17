@@ -3,11 +3,13 @@ const express =require("express")
 let db
 
 const app  =express()
+app.set("view engine","ejs")
+app.set("views","./views")
 
 app.get("/",async(req,res)=>{
     const allPeoples = await db.collection("people").find().toArray()
-    console.log(allPeoples)
-    res.send("welcome")
+    // console.log(allPeoples)
+    res.send( `<h1>welcome</h1>${allPeoples.map(people=>`<p>${people.name} -${people.like}</p>`).join('')}`)
 })
 app.get("/admin",(req,res)=>{
     res.send("this is the secret")
